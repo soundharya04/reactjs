@@ -4,23 +4,20 @@ import { connect } from "react-redux";
 
 class AddProject extends Component {
   state = {
-    id: null,
     name: null,
     desc: null,
     completed: null
   };
 
   handleChange = e => {
-    let id = Math.random() * 10;
     this.setState({
-      id: id,
       [e.target.id]: e.target.value
     });
   };
 
   handlesubmit = e => {
     e.preventDefault();
-    this.props.addProfile();
+    this.props.addProfile(this.state, this.props.history);
   };
 
   render() {
@@ -28,14 +25,25 @@ class AddProject extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" onChange={this.handleChange}></input>
+          <input
+            type="text"
+            id="name"
+            onChange={this.handleChange}
+            // value={this.state.name}
+          ></input>
           <label htmlFor="desc">Description</label>
-          <input type="text" id="desc" onChange={this.handleChange}></input>
+          <input
+            type="text"
+            id="desc"
+            onChange={this.handleChange}
+            // value={this.state.desc}
+          ></input>
           <label htmlFor="completed">Completed</label>
           <input
             type="text"
             id="completed"
             onChange={this.handleChange}
+            // value={this.state.completed}
           ></input>
           <button>Submit</button>
         </form>
@@ -44,4 +52,10 @@ class AddProject extends Component {
   }
 }
 
-export default connect({ addProfile })(AddProject);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    state,
+    ownProps
+  };
+};
+export default connect(mapStateToProps, { addProfile })(AddProject);

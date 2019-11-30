@@ -15,6 +15,7 @@ export const getuserProfile = id => dispatch => {
 
 export const addProfile = (prof, history) => {
   axios.post("http://localhost:8000/add", prof).then(res => {
-    return history.push("/");
+    console.log(res);
+    //history.push("/");
   });
 };

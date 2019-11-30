@@ -7,7 +7,8 @@ class Home extends Component {
     this.props.getallProfile();
     console.log("getprofile");
   }
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault();
     this.props.history.push("/AddProject");
   };
 
@@ -37,7 +38,7 @@ class Home extends Component {
           <tbody>{tblrow}</tbody>
         </table>
 
-        <button onClick={this.handleClick}>AddPoject</button>
+        <button onClick={this.handleClick}>AddProject</button>
       </div>
     );
   }
