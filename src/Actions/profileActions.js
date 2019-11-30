@@ -13,9 +13,16 @@ export const getuserProfile = id => dispatch => {
   });
 };
 
-export const addProfile = (prof, history) => {
-  axios.post("http://localhost:8000/add", prof).then(res => {
-    console.log(res);
-    //history.push("/");
-  });
+export const addProfile = (prof, history) => dispatch => {
+  axios
+    .post("http://localhost:8000/add", {
+      name: prof.name,
+      desc: prof.desc,
+      completed: prof.completed
+    })
+    .then(res => {
+      history.push("/");
+      return dispatch({ type: "RESPONSE", profile: res.data });
+    })
+    .catch(err => console.log(err));
 };

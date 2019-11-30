@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         React JS
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/AddProject" component={AddProject}></Route>
       </div>
     </BrowserRouter>

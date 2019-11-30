@@ -1,6 +1,7 @@
 const initState = {
   profile: [],
-  u_profile: []
+  u_profile: [],
+  responses: null
 };
 
 const rootReducer = (state = initState, action) => {
@@ -15,6 +16,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         u_profile: action.profile
+      };
+    case "RESPONSE":
+      return {
+        ...state,
+        responses: action.profile
       };
 
     case "addProfile":

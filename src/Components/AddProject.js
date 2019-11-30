@@ -4,18 +4,18 @@ import { connect } from "react-redux";
 
 class AddProject extends Component {
   state = {
-    name: null,
-    desc: null,
-    completed: null
+    name: "",
+    desc: "",
+    completed: ""
   };
 
   handleChange = e => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
-  handlesubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.addProfile(this.state, this.props.history);
   };
@@ -24,38 +24,32 @@ class AddProject extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name:</label>
+          Name:
           <input
             type="text"
-            id="name"
             onChange={this.handleChange}
-            // value={this.state.name}
-          ></input>
-          <label htmlFor="desc">Description</label>
+            value={this.state.name}
+            name="name"
+          />
+          Description:
           <input
             type="text"
-            id="desc"
             onChange={this.handleChange}
-            // value={this.state.desc}
-          ></input>
-          <label htmlFor="completed">Completed</label>
+            value={this.state.desc}
+            name="desc"
+          />
+          IsCompleted?:
           <input
             type="text"
-            id="completed"
             onChange={this.handleChange}
-            // value={this.state.completed}
-          ></input>
-          <button>Submit</button>
+            value={this.state.completed}
+            name="completed"
+          />
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    state,
-    ownProps
-  };
-};
-export default connect(mapStateToProps, { addProfile })(AddProject);
+export default connect(null, { addProfile })(AddProject);

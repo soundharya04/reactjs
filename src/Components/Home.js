@@ -29,12 +29,14 @@ class Home extends Component {
     return (
       <div>
         <table>
-          <th>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Description</td>
-            <td>IsCompleted</td>
-          </th>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>IsCompleted</th>
+            </tr>
+          </thead>
           <tbody>{tblrow}</tbody>
         </table>
 
