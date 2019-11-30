@@ -23,6 +23,7 @@ export const addProfile = (prof, history) => dispatch => {
       history.push("/");
       return dispatch({ type: "RESPONSE", profile: res.data });
     })
+<<<<<<< HEAD
     .catch(err => {
       console.log(err);
     });
@@ -50,4 +51,7 @@ export const editProfile = (prof, history) => dispatch => {
     .catch(err => {
       console.log(err);
     });
+=======
+    .catch(err => console.log(err));
+>>>>>>> 92b29da1dfd25d251c64b339a5294c378e0c40ed
 };

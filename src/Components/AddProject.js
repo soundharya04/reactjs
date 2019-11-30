@@ -11,7 +11,7 @@ class AddProject extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -24,28 +24,43 @@ class AddProject extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name:</label>
+          Name:
           <input
             type="text"
-            id="name"
             onChange={this.handleChange}
             value={this.state.name}
+<<<<<<< HEAD
           ></input>
           <label htmlFor="desc">Description</label>
+=======
+            name="name"
+          />
+          Description:
+>>>>>>> 92b29da1dfd25d251c64b339a5294c378e0c40ed
           <input
             type="text"
-            id="desc"
             onChange={this.handleChange}
             value={this.state.desc}
+<<<<<<< HEAD
           ></input>
           <label htmlFor="completed">Completed</label>
+=======
+            name="desc"
+          />
+          IsCompleted?:
+>>>>>>> 92b29da1dfd25d251c64b339a5294c378e0c40ed
           <input
             type="text"
-            id="completed"
             onChange={this.handleChange}
             value={this.state.completed}
+<<<<<<< HEAD
           ></input>
           <button>Submit</button>
+=======
+            name="completed"
+          />
+          <button type="submit">Submit</button>
+>>>>>>> 92b29da1dfd25d251c64b339a5294c378e0c40ed
         </form>
       </div>
     );
