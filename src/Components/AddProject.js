@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 class AddProject extends Component {
   state = {
-    name: null,
-    desc: null,
-    completed: null
+    name: "",
+    desc: "",
+    completed: ""
   };
 
   handleChange = e => {
@@ -15,7 +15,7 @@ class AddProject extends Component {
     });
   };
 
-  handlesubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.addProfile(this.state, this.props.history);
   };
@@ -29,21 +29,21 @@ class AddProject extends Component {
             type="text"
             id="name"
             onChange={this.handleChange}
-            // value={this.state.name}
+            value={this.state.name}
           ></input>
           <label htmlFor="desc">Description</label>
           <input
             type="text"
             id="desc"
             onChange={this.handleChange}
-            // value={this.state.desc}
+            value={this.state.desc}
           ></input>
           <label htmlFor="completed">Completed</label>
           <input
             type="text"
             id="completed"
             onChange={this.handleChange}
-            // value={this.state.completed}
+            value={this.state.completed}
           ></input>
           <button>Submit</button>
         </form>
@@ -52,10 +52,4 @@ class AddProject extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    state,
-    ownProps
-  };
-};
-export default connect(mapStateToProps, { addProfile })(AddProject);
+export default connect(null, { addProfile })(AddProject);

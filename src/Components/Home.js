@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getallProfile } from "../Actions/profileActions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   componentDidMount() {
@@ -18,7 +19,9 @@ class Home extends Component {
       ? profile.map(prof => {
           return (
             <tr key={prof.id}>
-              <td>{prof.id}</td>
+              <td>
+                <Link to={"/" + prof.id}>{prof.id}</Link>
+              </td>
               <td>{prof.name}</td>
               <td>{prof.desc}</td>
               <td>{prof.completed}</td>
@@ -29,12 +32,14 @@ class Home extends Component {
     return (
       <div>
         <table>
-          <th>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Description</td>
-            <td>IsCompleted</td>
-          </th>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>IsCompleted</th>
+            </tr>
+          </thead>
           <tbody>{tblrow}</tbody>
         </table>
 
